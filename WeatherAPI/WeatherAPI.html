@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+  </head>
+
+  <body>
+    <input type="text" name="city" id="city"></input>
+	<button onclick="getWeather()">Get Weather!</button>
+	<div id="img"></div>
+	<div id="root"></div>
+    <script>
+		function getWeather() {
+			var request = new XMLHttpRequest()
+			var apiKey = '4fa5a9f8092f1ff51215878d35721efe'
+			var city = document.getElementById("city").value;
+			request.open('GET', 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey, true)
+
+			request.onload = function() {
+			document.getElementById("img").innerHTML = "";
+			document.getElementById("root").innerHTML = "";
+			  // Begin accessing JSON data here
+			  var data = JSON.parse(this.response)
+				document.getElementById("root").innerHTML += "<h2>Weather: " + data.weather[0].main + "</h2><br>"
+				var weatherType = data.weather[0].main
+				if(weatherType == "Clouds")
+				{
+					document.getElementById("img").innerHTML += "<img src=http://openweathermap.org/img/wn/03d@2x.png>"
+				}
+				else if(weatherType == "Clear")
+				{
+					document.getElementById("img").innerHTML += "<img src=http://openweathermap.org/img/wn/01d@2x.png>"
+				}
+				else if(weatherType == "Snow")
+				{
+					document.getElementById("img").innerHTML += "<img src=http://openweathermap.org/img/wn/13d@2x.png>"
+				}
+				else if(weatherType == "Rain")
+				{
+					document.getElementById("img").innerHTML += "<img src=http://openweathermap.org/img/wn/10d@2x.png>"
+				}
+				else if(weatherType == "Drizzle")
+				{
+					document.getElementById("img").innerHTML += "<img src=http://openweathermap.org/img/wn/09d@2x.png>"
+				}
+				else if(weatherType == "Thunderstorm")
+				{
+					document.getElementById("img").innerHTML += "<img src=http://openweathermap.org/img/wn/11d@2x.png>"
+				}
+				else {
+					document.getElementById("img").innerHTML += "<img src=http://openweathermap.org/img/wn/50d@2x.png>"
+				}
+				var celsTemp = parseFloat(data.main.temp) - 273.15
+				document.getElementById("root").innerHTML += "<h2>Temperature: " + Math.trunc(celsTemp) + " C</h2><br>"
+				document.getElementById("root").innerHTML += "<h3>Humidity: " + data.main.humidity + "%</h3><br>"
+				document.getElementById("root").innerHTML += "<h3>Pressure: " + data.main.pressure + " Torr</h3><br>"
+				document.getElementById("root").innerHTML += "<h3>Wind Speed: " + data.wind.speed + "km/h</h3><br>"
+			}
+
+			request.send()
+		}
+	</script>
+  </body>
+</html>

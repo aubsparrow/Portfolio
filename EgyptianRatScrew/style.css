@@ -1,0 +1,121 @@
+html {
+	width: 1100px;
+	height: 650px;
+	background-color: #358856;
+	border: 2px #000 solid;
+}
+
+#playerdeck img{
+	height: 175px;
+	width: 125px;
+}
+
+#playerdeck {
+	margin: 5px 20px 5px 0px;
+}
+
+#playerdeck2 img{
+	height: 175px;
+	width: 125px;
+}
+
+#playerdeck2 {
+	margin: 5px 20px 5px 0px;
+}
+
+#middledeck {
+	display: block;
+	height: 190px;
+	width: 700px;
+	margin: 20px 20px 20px 0px;
+	position: absolute;
+	top: 45px;
+	left: 365px;
+}
+
+.middlecard {
+	height: 175px;
+	width: 125px;
+	float: left;
+	display: block;
+}
+
+#middlecard2 {
+	position: relative;
+	right: 100px;
+}
+
+#middlecard3 {
+	position: relative;
+	right: 200px;
+}
+
+#middlecard4 {
+	position: relative;
+	right: 300px;
+}
+
+#middlecard5 {
+	position: relative;
+	right: 400px;
+}
+
+#player1 {
+	height: 210px;
+	width: 150px;
+	position: absolute;
+	top: 300px;
+	left: 200px;
+}
+
+#player2 {
+	height: 210px;
+	width: 150px;
+	position: absolute;
+	top: 300px;
+	left: 600px;
+}
+
+button {
+	background: #00321E;
+	color: #358856;
+	width: 200px;
+	height: 35px;
+	border-radius: 5px;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#slap {
+	position: absolute;
+	left: 380px;
+	top: 260px;
+}
+
+#heading {
+	position: absolute;
+	top: 0px;
+	left: 5px;
+	margin: 0px;
+}
+
+#playerTurn {
+	position: absolute;
+	top: 30px;
+	left: 5px;
+	margin: 10px;
+}
+
+#playerWin {
+	position: absolute;
+	top: 80px;
+	left: 355px;
+}
+
+/* TO REMOVE */
+#delete {
+	position: absolute;
+	top: 600px;
+	left: 10px;
+}
